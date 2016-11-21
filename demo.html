@@ -1,0 +1,34 @@
+<html>
+<head>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="hurkanSwitch.js"></script>
+</head>
+<body>
+<a id="destroy">Destroy</a>
+<a id="Re-init">Re-init</a>
+<div id="demo">
+	<input type="checkbox" name="deneme"/>
+</div>
+	<script type="text/javascript">
+		$(function(){
+		var opt = {
+			'onTitle':'Aktif',
+			'offTitle':'Pasif',
+			'width':250
+		};
+		$('#destroy').click(function(){
+			$('#demo').hurkanSwitch('destroy');
+		});
+		$('#Re-init').click(function(){
+			$('#demo').hurkanSwitch(opt);
+		});
+		
+		$('#demo').hurkanSwitch(opt);
+		});
+	</script>
+</body>
+</html>
