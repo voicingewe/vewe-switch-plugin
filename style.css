@@ -114,7 +114,6 @@ background:#fff
     filter: alpha(opacity=65);
 	cursor:default
 }
-
 .hurkanSwitch>.hurkanSwitch-switch-box{
 	cursor:pointer;
 	background:#fff;
@@ -124,4 +123,6 @@ background:#fff
 	display:inline-block;
 	width:auto;
 }
-.hurkanSwitch>.hurkanSwitch-switch-box.switch-responsive{display:block}
+.hurkanSwitch{display:inline-block}
+.hurkanSwitch.switch-responsive{display:block}
+.hurkanSwitch.switch-responsive>.hurkanSwitch-switch-box{display:block !important}

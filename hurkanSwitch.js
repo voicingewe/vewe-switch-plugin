@@ -1,35 +1,12 @@
-  (function($){
+(function($){
 
-  var _hurkanSwitch_conf = [];
-  $.fn.hurkanSwitch = function(opt){
+ $.fn.hurkanSwitch = function(opt){
 	  /*
 		@Author : Hürkan ARAS
 		@Email  : hurkanaras@gmail.com
 	  */
 	  if(typeof opt == 'undefined') opt = {};
-	  if(opt == 'destroy'){
-		  
-		  this.each(function(){
-			 if($(this).next().hasClass('hurkanSwitch-switch-plugin-box') && $(this).hasClass('hurkanSwitch-switch-plugin')){
-				 $(this).next().remove();
-				 $(this).css({'display':'inline-block'});
-				  $(this).find('.hurkanSwitch-switch-input').removeClass('hurkanSwitch-switch-input');
-				  
-				 $(this).removeClass('hurkanSwitch-switch-plugin');
-			 } 
-		  });
-		  return false;
-	  }
-
- 
- 	  $.fn._radio_button_on = function(){
-		  
- 		  $(this).each(function() {
-var $thisElem = $(this);
-			$thisElem.addClass('hurkanSwitch-switch-plugin');
-
-			var __index = $thisElem.index('.hurkanSwitch-switch-plugin');
-			 _hurkanSwitch_conf[__index] = $.extend({
+	  	var 	_hurkanSwitch_conf = $.extend({
 									'on':function(r){},
 									'off':function(r){},
 									'onConfirm':function(r){ return true;},
@@ -44,13 +21,34 @@ var $thisElem = $(this);
 									'className':'',
 									'width':80
 	  },opt);
-			  
-			  if(typeof _hurkanSwitch_conf[__index].checked != 'undefined'){
+	  if(opt == 'destroy'){
+		  
+		  this.each(function(){
+			 if($(this).next().hasClass('hurkanSwitch-switch-plugin-box') && $(this).hasClass('hurkanSwitch-switch-plugin')){
+				 $(this).next().remove();
+				 $(this).css({'display':'inline-block'});
+				  $(this).find('.hurkanSwitch-switch-input').removeClass('hurkanSwitch-switch-input');
 				  
-				 if( _hurkanSwitch_conf[__index].checked.toString().substr(0,1) == '.'){
-					$thisElem.find('input'+_hurkanSwitch_conf[__index].checked+'').trigger("click");
+				 $(this).removeClass('hurkanSwitch-switch-plugin');
+			 } 
+		  });
+		  return false;
+	  }
+
+	
+ 	  $.fn._radio_button_on = function(){
+			 var __index = $(this).index('.hurkanSwitch-switch-plugin');
+
+			var $thisElem = $(this);
+			
+				$thisElem.css({'display':'none'});	 
+ 			  
+			  if(typeof _hurkanSwitch_conf.checked != 'undefined'){
+				  
+				 if( _hurkanSwitch_conf.checked.toString().substr(0,1) == '.'){
+					$thisElem.find('input'+_hurkanSwitch_conf.checked+'').trigger("click");
 				 }else{ 
-					$thisElem.find('input[value="'+_hurkanSwitch_conf[__index].checked+'"]').trigger("click");
+					$thisElem.find('input[value="'+_hurkanSwitch_conf.checked+'"]').trigger("click");
 				 }
 				}
 			if($thisElem.hasClass('hurkanSwitch-switch-plugin')){
@@ -58,20 +56,21 @@ var $thisElem = $(this);
 			}
 		 
 			var obj = [];
-			$thisElem.css({'display':'none'});
+			
 			var $inputElem = $thisElem.find('input').eq(0);
+			 $thisElem.find('input').data({'_switch_opt':_hurkanSwitch_conf});
+			var bootstrapContent  = '<div class="hurkanSwitch '+(_hurkanSwitch_conf.responsive == true ? ' switch-responsive ' : '' )+'  hurkanSwitch-switch-plugin-box ';
 			
-			var bootstrapContent  = '<div class="hurkanSwitch hurkanSwitch-switch-plugin-box ';
-			
-			if(_hurkanSwitch_conf[__index].className != ''){
-				  bootstrapContent+=_hurkanSwitch_conf[__index].className;
+			if(_hurkanSwitch_conf.className != ''){
+				  bootstrapContent+=_hurkanSwitch_conf.className;
 			  }
 			  
 			bootstrapContent+='">';
 					
-					bootstrapContent+='<div class="hurkanSwitch-switch-box '+(_hurkanSwitch_conf[__index].responsive == true ? ' switch-responsive ' : '' )+' '+(_hurkanSwitch_conf[__index].animate == true ? ' switch-animated-on ' : '')+'">';
+					bootstrapContent+='<div class="hurkanSwitch-switch-box '+(_hurkanSwitch_conf.animate == true ? ' switch-animated-on ' : '')+'">';
 			if($inputElem.attr("type") == 'radio'){
-				var $item = $thisElem.find('input[name="'+$inputElem.attr("name")+'"]');
+				
+				var $item = $thisElem.find('input[type="radio"]');
 				if($item.length == 2){
 					$item.each(function(key,row){
 						$(row).addClass('hurkanSwitch-switch-input');
@@ -80,9 +79,9 @@ var $thisElem = $(this);
 						if(typeof label == 'undefined'){
 							if($(row).val() == '1' || $(row).attr("data-status") == '1' || $(row).attr("data-on") ){
 								 
-								label= _hurkanSwitch_conf[__index].onTitle;
+								label= _hurkanSwitch_conf.onTitle;
 							}else{ 
-								label= _hurkanSwitch_conf[__index].offTitle;
+								label= _hurkanSwitch_conf.offTitle;
 							}
 						}
 						bootstrapContent+='<a class=" hurkanSwitch-switch-item';
@@ -103,7 +102,7 @@ var $thisElem = $(this);
 											
 											bootstrapContent+=' hurkanSwitch-switch-item-color-'+$inputElem.attr("data-on-color");
 								}else{
-											bootstrapContent+=' hurkanSwitch-switch-item-color-'+_hurkanSwitch_conf[__index]['onColor'];
+											bootstrapContent+=' hurkanSwitch-switch-item-color-'+_hurkanSwitch_conf['onColor'];
  									
 								}
 								
@@ -112,15 +111,15 @@ var $thisElem = $(this);
 											
 											bootstrapContent+=' hurkanSwitch-switch-item-color-'+$(row).attr("data-off-color");
 								}else{ 
-											bootstrapContent+=' hurkanSwitch-switch-item-color-'+_hurkanSwitch_conf[__index]['offColor'];
+											bootstrapContent+=' hurkanSwitch-switch-item-color-'+_hurkanSwitch_conf['offColor'];
 
 								}
 								bootstrapContent+=' hurkanSwitch-switch-item-status-off ';
 							}
 						bootstrapContent+='"';
-						if(_hurkanSwitch_conf[__index].width != false && _hurkanSwitch_conf[__index].responsive == false){
-							_hurkanSwitch_conf[__index].width = parseInt(_hurkanSwitch_conf[__index].width);
-							bootstrapContent+=' style="width:'+_hurkanSwitch_conf[__index].width+'px !important" ';
+						if(_hurkanSwitch_conf.width != false && _hurkanSwitch_conf.responsive == false){
+							_hurkanSwitch_conf.width = parseInt(_hurkanSwitch_conf.width);
+							bootstrapContent+=' style="width:'+_hurkanSwitch_conf.width+'px !important" ';
 						}
 						bootstrapContent+=' >';
 					
@@ -143,7 +142,7 @@ var $thisElem = $(this);
 											
 											bootstrapContent+=' hurkanSwitch-switch-item-color-'+$inputElem.attr("data-on-color");
 									}else{ 
-											bootstrapContent+=' hurkanSwitch-switch-item-color-'+_hurkanSwitch_conf[__index]['onColor'];
+											bootstrapContent+=' hurkanSwitch-switch-item-color-'+_hurkanSwitch_conf['onColor'];
 									}
 								}
 								bootstrapContent+='  hurkanSwitch-switch-item-status-on';
@@ -155,7 +154,7 @@ var $thisElem = $(this);
 											
 											bootstrapContent+=' hurkanSwitch-switch-item-color-'+$inputElem.attr("data-off-color");
 									}else{ 
-										bootstrapContent+=' hurkanSwitch-switch-item-color-'+_hurkanSwitch_conf[__index]['offColor'];
+										bootstrapContent+=' hurkanSwitch-switch-item-color-'+_hurkanSwitch_conf['offColor'];
 
 									}
 								bootstrapContent+='  hurkanSwitch-switch-item-status-off';
@@ -165,20 +164,20 @@ var $thisElem = $(this);
 							 
 						 
 						bootstrapContent+=' "';
-						if(_hurkanSwitch_conf[__index].width != false && _hurkanSwitch_conf[__index].responsive == false){
-							_hurkanSwitch_conf[__index].width = parseInt(_hurkanSwitch_conf[__index].width);
-							bootstrapContent+=' style="width:'+_hurkanSwitch_conf[__index].width+'px !important" ';
+						if(_hurkanSwitch_conf.width != false && _hurkanSwitch_conf.responsive == false){
+							_hurkanSwitch_conf.width = parseInt(_hurkanSwitch_conf.width);
+							bootstrapContent+=' style="width:'+_hurkanSwitch_conf.width+'px !important" ';
 						}
 						bootstrapContent+='>';
 						if(i == 0){
 							var label = $inputElem.attr("data-on-title");
 							if(typeof label == 'undefined'){
-									label= _hurkanSwitch_conf[__index].onTitle;
+									label= _hurkanSwitch_conf.onTitle;
 							}
 						}else{
 							var label = $inputElem.attr("data-off-title");
 							if(typeof label == 'undefined'){
-									label= _hurkanSwitch_conf[__index].offTitle;
+									label= _hurkanSwitch_conf.offTitle;
 
 							}
 						}
@@ -205,29 +204,30 @@ var $thisElem = $(this);
 						var selectedType = '';
 						var $eElem =  $thisElemNext.find('.hurkanSwitch-switch-item');
 						var $activeItem = $(this).find('.active');
+						if( $item.eq($eElem.not($activeItem).index()).attr('readonly') || $item.eq($eElem.not($activeItem).index()).is(':disabled')){
+							return;
+						}
 						if(  $item.eq($eElem.not($activeItem).index()).attr("data-off") || $item.eq($eElem.not($activeItem).index()).attr("data-status") == 'off' || $item.eq($eElem.not($activeItem).index()).attr("data-status") == '0'){
 							selectedType = 'off';
-							if(param == false && _hurkanSwitch_conf[__index].offConfirm($(this)) != true){
+							if(param == false && _hurkanSwitch_conf.offConfirm($(this)) != true){
 								return;
 							}
 						}else{ 
 													selectedType = 'on';
 
-							if(param == false && _hurkanSwitch_conf[__index].onConfirm($(this)) != true){
+							if(param == false && _hurkanSwitch_conf.onConfirm($(this)) != true){
 								
 								return;
 							}
 						}
-						if( $item.eq($eElem.not($activeItem).index()).attr('readonly') || $item.eq($eElem.not($activeItem).index()).is(':disabled')){
-							return;
-						}
+						
 						$eElem.removeClass('active');
 						$eElem.not($activeItem).addClass('active');
 						
 						
 						var $newActive = $(this).find('.active');
 						$item.eq($newActive.index()).prop('checked',true);
-							_hurkanSwitch_conf[__index].selected($item.eq($newActive.index()),selectedType);
+						_hurkanSwitch_conf.selected($item.eq($newActive.index()),selectedType);
 						 
 				});
 			}else{ 
@@ -241,16 +241,19 @@ var $thisElem = $(this);
 						}
 
 						var $active = $thisElemNext.find('.active');
+							if( $inputElem.attr('readonly') || $inputElem.is(':disabled')){
+							return;
+						}
 						if($active.hasClass('hurkanSwitch-switch-item-status-on')){
 							selectedType = 'off';
- 							if(param == false && _hurkanSwitch_conf[__index].offConfirm($(this)) != true){
+ 							if(param == false && _hurkanSwitch_conf.offConfirm($(this)) != true){
 									
 									return;
 							}
 						}else{ 
 													selectedType = 'on';
 
-						if(param == false && _hurkanSwitch_conf[__index].onConfirm($(this)) != true){
+						if(param == false && _hurkanSwitch_conf.onConfirm($(this)) != true){
 									
 									return;
 							}
@@ -260,15 +263,15 @@ var $thisElem = $(this);
 								
 								$active.removeClass('active');
 								$eElem.not($active).addClass('active');
-								_hurkanSwitch_conf[__index].off($thisElemNext);
+								_hurkanSwitch_conf.off($thisElemNext);
 							}else if($active.hasClass('hurkanSwitch-switch-item-status-off')){
 								 
 								$active.removeClass('active');
 								$eElem.not($active).addClass('active');
-								_hurkanSwitch_conf[__index].on($thisElemNext);
+								_hurkanSwitch_conf.on($thisElemNext);
 							}
 							$inputElem.trigger("click");
-							_hurkanSwitch_conf[__index].selected($inputElem,selectedType);
+							_hurkanSwitch_conf.selected($inputElem,selectedType);
 							}
 							
 							
@@ -276,22 +279,22 @@ var $thisElem = $(this);
 					});
 			}
 			
-		  });
+		  
 	  };
-	return   this.each(function(){
-					var __index = $(this).index('.hurkanSwitch-switch-plugin');
-			$(this)._radio_button_on(_hurkanSwitch_conf[__index]);
+	  var _g = [];
+ 	return   this.each(function(){
+				$(this).addClass('hurkanSwitch-switch-plugin');
+		
+ 			$(this)._radio_button_on();
  	  });
 	
 	  	
   }
 	$(document).ready(function() {
-		  $(document).on('click','.hurkanSwitch-switch-input',function(event){
+		  $(document).on('click change','.hurkanSwitch-switch-input',function(event){
 			var $this = $(this).parent();
-					var __index = $this.index('.hurkanSwitch-switch-plugin');
-			$this.hurkanSwitch(_hurkanSwitch_conf[__index]);
-
+				$this.hurkanSwitch($(this).data("_switch_opt"));
+			
 		  });
-	  });
-})(jQuery);
-	  
+	  }); 
+  }( jQuery ));
