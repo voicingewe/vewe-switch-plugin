@@ -1,3 +1,5 @@
+![alt tag](https://raw.githubusercontent.com/hurkanaras/Hurkan-Switch-Plugin/master/demo.png)
+
 hurkanSwitch on/off jQuery Plugin
 ===
 Contact
@@ -59,3 +61,4 @@ $('#demo2').hurkanSwitch({
 	'checked':'your value 2'
 });
 ```
+
