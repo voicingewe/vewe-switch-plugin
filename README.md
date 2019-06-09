@@ -61,4 +61,7 @@ $('#demo2').hurkanSwitch({
 	'checked':'your value 2'
 });
 ```
+<div>
+<a href="https://yatirimfikirleri.com" title="iş fikirleri">İş fikirleri</a>
 
+</div>
