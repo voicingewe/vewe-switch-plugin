@@ -1,3 +1,4 @@
+# jQuery Switch Plugin
 # Warning
 ## Forked from [Hurkan-Switch](https://github.com/hurkanaras/Hurkan-Switch-Plugin)
     This is a simple responsive jquery plugin meant to allow switch 
@@ -7,16 +8,12 @@
     initial updates, it is considered for me a step to update the 
     outdated Hurkan-Switch-Plugin to Bootstrap 4 and JQuery 3 and later 
     replace it with a better maintained plugin.
-    
-	
-## veweSwitch on/off jQuery Plugin
-===
-### Contact
 ---
-Javi
-voicingewe@gmail.com
+## Contact
+---
+Javi: voicingewe@gmail.com
 
-# Example 1
+# Example I
 ---
 ```html
 <div id="demo">
