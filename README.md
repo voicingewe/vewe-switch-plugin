@@ -54,7 +54,7 @@ voicingewe@gmail.com
 
 };
 
-$('#demo').hurkanSwitch(options);
+$('#demo').veweSwitch(options);
 ```
  
 # Example II
@@ -66,7 +66,7 @@ $('#demo').hurkanSwitch(options);
 </div>
 ```
 ```javascript
-$('#demo2').hurkanSwitch({
+$('#demo2').veweSwitch({
 	'checked':'your value 2'
 });
 ```
