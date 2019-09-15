@@ -1,54 +1,63 @@
-![alt tag](https://raw.githubusercontent.com/hurkanaras/Hurkan-Switch-Plugin/master/demo.png)
-
-hurkanSwitch on/off jQuery Plugin
+# Warning
+## Forked from [Hurkan-Switch](https://github.com/hurkanaras/Hurkan-Switch-Plugin)
+    This is a simple responsive jquery plugin meant to allow switch 
+    based interactions with flexible configuration options and event 
+    hooks. It was forked to update Hurkan-Switch-Plugin to Bootstrap 4 
+    and JQuery 3 as well as have an npm updatable plugin. Apart from the 
+    initial updates, it is considered for me a step to update the 
+    outdated Hurkan-Switch-Plugin to Bootstrap 4 and JQuery 3 and later 
+    replace it with a better maintained plugin.
+    
+	
+## veweSwitch on/off jQuery Plugin
 ===
-Contact
+### Contact
 ---
-Hürkan ARAS
-hurkanaras@gmail.com
+Javi
+voicingewe@gmail.com
 
-#Example 1
+# Example 1
 ---
-
+```html
 <div id="demo">
 	<input name="demo" />
 </div>
- ```javascript  
+```
+```javascript
  var options = {
 	'onTitle':'ON',
 	'offTitle':'OFF',
-	'onColor':'success', // danger,success,info,primary,default,warning
-	'offColor':'danger', // danger,success,info,primary,default,warning
+	'onColor':'success’, '//danger,success,info,primary,default,warning
+	'offColor':'danger', '// danger,success,info,primary,default,warning
 	'animate':true, //or false
-	'responsive':false,  //or true 
-	'checked':'your value', // default input checked value="your value" OR checked:'.input-selector'
-	'selected':function(input,status){ // input selector event 
-	 // $(input)
-	 // status ==> on / off - String
+	'responsive':false,  '//or true 
+	'checked':'your value', '// default input checked value="your value" OR checked:'.input-selector'
+	'selected':function(input,status){ '// input selector event 
+	 $(input)
+	  status ==> on / off - String
 		console.log(status);
 	},
- 	 'offConfirm':function(input){ 
-		
-			if(confirm("Are you sure?")){
-				$(input).trigger("click",true);
-			}
-		
-			return false;
-		},
-	 'onConfirm':function(input){
-		
+	 'offConfirm':function(input){ 
 		if(confirm("Are you sure?")){
 			$(input).trigger("click",true);
 		}
-		
+
+		return false;
+	  },
+	 'onConfirm':function(input) {
+		if(confirm("Are you sure?")) {
+			$(input).trigger("click",true);
+		}
+
 		return false;
 	},
-	
+
 };
 
 $('#demo').hurkanSwitch(options);
- ```
-#Example 2
+```
+ 
+# Example II
 ---
 ```html
 <div id="demo2">
@@ -61,7 +70,3 @@ $('#demo2').hurkanSwitch({
 	'checked':'your value 2'
 });
 ```
-<div>
-<a href="https://yatirimfikirleri.com" title="iş fikirleri">İş fikirleri</a>
-
-</div>
