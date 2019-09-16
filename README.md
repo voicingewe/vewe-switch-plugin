@@ -13,6 +13,11 @@
 ---
 Javi: voicingewe@gmail.com
 
+# Install
+```bash 
+npm i -S vewe-switch-plugin
+```
+
 # Example I
 ---
 ```html
