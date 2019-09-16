@@ -1,0 +1,64 @@
+@-webkit-keyframes left {
+  0% {
+    left: 100%;
+  }
+
+  100% {
+    left: 5px;
+  }
+}
+
+
+@keyframes left {
+  0% {
+    left: 100%;
+  }
+
+  100% {
+    left: 5px;
+  }
+}
+
+
+@-webkit-keyframes right {
+  0% {
+    right: 100%;
+  }
+
+  100% {
+    right: 5px;
+  }
+}
+
+
+@keyframes right {
+  0% {
+    right: 100%;
+  }
+
+  100% {
+    right: 5px;
+  }
+}
+
+
+@-webkit-keyframes active {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+@keyframes active {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

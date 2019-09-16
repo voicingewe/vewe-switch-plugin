@@ -1,0 +1,51 @@
+{
+    "name": "veweSwitch",
+    "version": "1.0.0",
+    "author": "Javi",
+    "description": "Simple JQuery switch plugin for Bootstrap 4",
+    "homepage": "https://voicingewe.github.io/veweSwitch/",
+    "main": "./src/js/veweSwitch.js",
+    "license": "MIT",
+    "keywords": [
+        "bootstrap",
+        "jquery",
+        "switch"
+    ],
+    "dependencies": {
+        "bootstrap": ">=4.3.1",
+        "jquery": ">=3.4.1"
+    },
+    "devDependencies": {
+        "autoprefixer": "^9.6.1",
+        "css-loader": "^3.2.0",
+        "cssnano": "^4.1.10",
+        "eslint": "^6.4.0",
+        "eslint-plugin-jquery": "^1.5.1",
+        "mini-css-extract-plugin": "^0.8.0",
+        "node-sass": "^4.12.0",
+        "optimize-css-assets-webpack-plugin": "^5.0.3",
+        "postcss-loader": "^3.0.0",
+        "sass": "^1.22.12",
+        "sass-loader": "^8.0.0",
+        "terser-webpack-plugin": "^2.0.1",
+        "webpack": "^4.40.2",
+        "webpack-cli": "^3.3.8"
+    },
+    "bugs": {
+        "url": "https://github.com/voicingewe/veweSwitch/issues"
+    },
+    "deprecated": false,
+    "scripts": {
+        "prod:js": "webpack --config webpack.config.js",
+        "dev:js": "webpack --config webpack.config.js --env.dev --progress",
+        "watch:js": "webpack --config webpack.config.js --env.dev --watch  --watch-poll --progress",
+        "prod:sass": "sass --style=compressed --no-source-map src/sass/veweSwitch.scss dist/veweSwitch.min.css",
+        "dev:sass": "sass --style=compressed src/sass/veweSwitch.scss dist/veweSwitch.css",
+        "watch:sass": "sass --watch src/sass:dist",
+        "lint": "eslint 'src/**/{*.js}'",
+        "lint:fix": "eslint 'src/**/{*.js}' --fix",
+        "audit": "npm audit",
+        "audit:fix": "npm audit fix",
+        "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm prod"
+    }
+}

@@ -3,7 +3,7 @@
  * @Author : Javier Solis
  * @Email  : voicingewe@gmail.com
  * Copyright (c) 2019 Javier Solis <voicingewe@gmail.com>
- * Partial code from Hürkan ARAS hurkanaras@gmail.com (No license)
+ * Partial code from Hürkan ARAS hurkanaras@gmail.com (Un-license)
  */
 (function ($) {
 	$.fn.veweSwitch = function (opt) {

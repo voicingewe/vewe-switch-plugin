@@ -1,10 +1,10 @@
 <html>
 <head>
-	<link href="style.css" rel="stylesheet" type="text/css" />
+	<link href="dist/veweSwitch.min.css" rel="stylesheet" type="text/css" />
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
 	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-	<script type="text/javascript" src="hurkanSwitch.js"></script>
+	<script type="text/javascript" src="dist/veweSwitch.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -19,11 +19,11 @@
 				<a class="btn btn-success" id="reinit">Re-init</a>
 				<script type="text/javascript">
 					$('#destroy').click(function () {
-						$('[data-toggle="hurkanSwitch"]').hurkanSwitch('destroy');
+						$('[data-toggle="veweSwitch"]').veweSwitch('destroy');
 					});
 
 					$('#reinit').click(function () {
-						$('[data-toggle="hurkanSwitch"]').hurkanSwitch();
+						$('[data-toggle="veweSwitch"]').veweSwitch();
 					});
 				</script>
 				<hr />
@@ -31,24 +31,24 @@
 			<h4>Example</h4>
 			<div class="col-xs-12">
 				<div class="col-xs-3">
-					<div data-toggle="hurkanSwitch">
-						<input type="checkbox" checked name="deneme2" />
+					<div data-toggle="veweSwitch">
+						<input type="checkbox" checked name="example2" />
 					</div>
 				</div>
 				<div class="col-xs-3">
-					<div data-toggle="hurkanSwitch">
-						<input data-on="true" type="radio" checked name="deneme1" />
-						<input data-off="true" type="radio" name="deneme1" />
+					<div data-toggle="veweSwitch">
+						<input data-on="true" type="radio" checked name="example1" />
+						<input data-off="true" type="radio" name="example1" />
 					</div>
 				</div>
 				<div class="col-xs-3">
-					<div data-toggle="hurkanSwitch">
-						<input data-on-color="warning" data-off-color="danger" type="checkbox" checked name="deneme2" />
+					<div data-toggle="veweSwitch">
+						<input data-on-color="warning" data-off-color="danger" type="checkbox" checked name="example2" />
 					</div>
 				</div>
 				<div class="col-xs-3">
-					<div data-toggle="hurkanSwitch">
-						<input data-on-color="info" data-off-color="default" type="checkbox" checked name="deneme3" />
+					<div data-toggle="veweSwitch">
+						<input data-on-color="info" data-off-color="default" type="checkbox" checked name="example3" />
 					</div>
 				</div>
 			</div>
@@ -58,14 +58,14 @@
 			<div class="col-xs-12">
 				<div class="col-xs-1">
 					<div data-toggle="OnConfirm">
-						<input data-on-color="success" data-off-title="Pasif" data-on-title="Aktif" type="checkbox"
-							name="deneme7" />
+						<input data-on-color="success" data-off-title="Inactive" data-on-title="Active" type="checkbox"
+							name="example7" />
 					</div>
 				</div>
 				<div class="col-xs-1">
 					<div data-toggle="OffConfirm">
 						<input data-on-color="success" data-off-title="Off" data-on-color="success" data-on-title="On"
-							type="checkbox" checked name="deneme9" />
+							type="checkbox" checked name="example9" />
 					</div>
 				</div>
 			</div>
@@ -75,8 +75,8 @@
 			<div class="col-xs-12">
 				<div class="col-xs-1">
 					<div data-toggle="OnConfirm">
-						<input data-on-color="success" disabled data-off-title="Pasif" data-on-title="Aktif"
-							type="checkbox" name="deneme7" />
+						<input data-on-color="success" disabled data-off-title="Inactive" data-on-title="Active"
+							type="checkbox" name="example7" />
 					</div>
 				</div>
 			</div>
@@ -90,7 +90,7 @@
 						<p class="list-group-item-text">
 							<div data-toggle="eventSelected">
 								<input data-on-color="success" data-off-title="Off" data-on-color="success"
-									data-on-title="On" type="checkbox" checked name="deneme9" />
+									data-on-title="On" type="checkbox" checked name="example9" />
 							</div>
 							<hr>
 						</p>
@@ -126,20 +126,20 @@
 	<hr><br>
 	<script type="text/javascript">
 		$(function () {
-			$('[data-toggle="hurkanSwitch"]').hurkanSwitch();
+			$('[data-toggle="veweSwitch"]').veweSwitch();
 
-			$('[data-toggle="OnConfirm"]').hurkanSwitch({
+			$('[data-toggle="OnConfirm"]').veweSwitch({
 				'onConfirm': function (input) {
-					if (confirm("Bu işlemi onaylıyor musunuzuz?")) {
+					if (confirm("Do you approve this action?")) {
 						$(input).trigger("click", true);
 					}
 
 				}
 			});
 
-			$('[data-toggle="OffConfirm"]').hurkanSwitch({
+			$('[data-toggle="OffConfirm"]').veweSwitch({
 				'offConfirm': function (input) {
-					if (confirm("Bu işlemi onaylıyor musunuzuz?")) {
+					if (confirm("Do you approve this action?")) {
 						$(input).trigger("click", true);
 					}
 
@@ -147,7 +147,7 @@
 			});
 
 
-			$('[data-toggle="eventSelected"]').hurkanSwitch({
+			$('[data-toggle="eventSelected"]').veweSwitch({
 				'responsive': true,
 				'selected': function (input, status) {
 					if (status == 'on') {
@@ -157,7 +157,7 @@
 					}
 				}
 			});
-			$('[data-toggle="responsive"]').hurkanSwitch({
+			$('[data-toggle="responsive"]').veweSwitch({
 				responsive: true,
 				width: false
 			});

@@ -1,0 +1,143 @@
+@import 'variables';
+@import 'keyframes';
+
+html, body {
+  font-family: arial, tahoma, serif;
+}
+
+.veweSwitch > .veweSwitch-switch-box {
+  > .veweSwitch-switch-item.active {
+    &.veweSwitch-switch-item-status-off {
+      padding-right: 15px;
+      padding-left: 32px;
+      background: $veweDefault;
+      color: #fff;
+      text-align: right;
+    }
+    &.veweSwitch-switch-item-status-on {
+      padding-right: 32px;
+      padding-left: 15px;
+      background-color: $veweSuccess;
+      color: #fff;
+      text-align: left;
+    }
+    opacity: 1;
+    display: block;
+  }
+  &.switch-animated-on {
+    > .veweSwitch-switch-item.active {
+      opacity: 1;
+      .lbl {
+        opacity: 1;
+        -webkit-animation-name: active;
+        animation-name: active;
+        -webkit-animation-duration: 0.5s;
+        animation-duration: 0.5s;
+      }
+    }
+    > .veweSwitch-switch-item {
+      &.veweSwitch-switch-item-status-on > .veweSwitch-switch-cursor-selector {
+        -webkit-animation-duration: 0.5s;
+        animation-duration: 0.5s;
+        -webkit-animation-name: right;
+        animation-name: right;
+      }
+      &.veweSwitch-switch-item-status-off > .veweSwitch-switch-cursor-selector {
+        -webkit-animation-duration: 0.5s;
+        animation-duration: 0.5s;
+        -webkit-animation-name: left;
+        animation-name: left;
+      }
+    }
+  }
+  > .veweSwitch-switch-item {
+    line-height: 16px;
+    font-size: 100%;
+    opacity: 0;
+    display: none;
+    border-radius: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: relative;
+    -webkit-box-shadow: 0 0 2px #777777 inset;
+    box-shadow: 0 0 2px #777777 inset;
+    height: 25px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    &:hover {
+      text-decoration: none;
+    }
+    &.veweSwitch-switch-item-status-off > .veweSwitch-switch-cursor-selector {
+      left: 5px;
+    }
+    &.veweSwitch-switch-item-status-on > .veweSwitch-switch-cursor-selector {
+      right: 5px;
+    }
+  }
+  > .veweSwitch-switch-item > .veweSwitch-switch-cursor-selector {
+    height: 18px;
+    position: absolute;
+    top: 4.5px;
+    width: 18px;
+    margin-top: -1px;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.1);
+    display: block;
+    content: "";
+    border-radius: 100%;
+    background: #fff;
+  }
+}
+
+.veweSwitch-switch-plugin.veweSwitch-switch-input {
+  display: none;
+}
+
+.veweSwitch {
+  > .veweSwitch-switch-box {
+    > .veweSwitch-switch-item {
+      &.veweSwitch-switch-item-color-success {
+        background-color: $veweSuccess !important;
+      }
+      &.veweSwitch-switch-item-color-warning {
+        background-color: $veweWarning !important;
+      }
+      &.veweSwitch-switch-item-color-info {
+        background-color: $veweInfo !important;
+      }
+      &.veweSwitch-switch-item-color-default {
+        background-color: #fff !important;
+        color: #777 !important;
+        > .veweSwitch-switch-cursor-selector {
+          border: 1px solid #eee !important;
+          margin-top: -2.2px;
+        }
+      }
+      &.veweSwitch-switch-item-color-primary {
+        background-color: $vewePrimary !important;
+      }
+      &.veweSwitch-switch-item-color-danger {
+        background-color: $veweError !important;
+      }
+      &.disabled {
+        opacity: 0.65;
+        filter: alpha(opacity = 65);
+        cursor: default;
+      }
+    }
+    cursor: pointer;
+    background: #fff;
+    overflow: hidden;
+    border: 0 solid #ddd;
+    padding: 0;
+    display: inline-block;
+    width: auto;
+  }
+  display: inline-block;
+  &.switch-responsive {
+    display: block;
+    > .veweSwitch-switch-box {
+      display: block !important;
+    }
+  }
+}
