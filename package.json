@@ -1,9 +1,9 @@
 {
-    "name": "vewe-switch",
+    "name": "vewe-switch-plugin",
     "version": "1.0.1",
     "author": "Javi",
     "description": "Simple JQuery switch plugin for Bootstrap 4",
-    "homepage": "https://voicingewe.github.io/veweSwitch/",
+    "homepage": "https://github.com/voicingewe/vewe-switch-plugin",
     "main": "./src/js/veweSwitch.js",
     "license": "MIT",
     "keywords": [
